@@ -15,6 +15,9 @@ public class CalculatorService {
     public List<CalculatorModel> getAll(){
         return calcRepository.findAll();
     }
+    public CalculatorModel create(CalculatorModel total){
+        return calcRepository.save(total);
+    }
     public CalculatorModel add(Long id, CalculatorModel plus){
         CalculatorModel total = calcRepository.findById(id).orElse(null);
         float oldTotal = total.getWant();
